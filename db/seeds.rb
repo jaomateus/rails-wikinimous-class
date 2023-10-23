@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+puts "Deleting articles...."
+Article.delete_all
+
+10.times do Article.create!(
+  title: Faker::Quote.most_interesting_man_in_the_world,
+  content: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4)
+)
+end
